@@ -33,7 +33,10 @@ export default function PostJob() {
           return alert("Job Detail added successfully.");
         }
       })
-      .catch((error) => console.log("Error:", error));
+      .catch((error) => {
+        console.log("Error:", error);
+        return alert("Some error occurred in posting Job Details. Please try again.");
+      });
   }
   return (
     <>
