@@ -4,10 +4,12 @@ import useFetch from "../useFetch";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function Home() {
   const [finalJobData, setFinalJobData] = useState([]);
 
-  const apiUrl = "https://bi-mcr-backend.vercel.app/job";
+  const apiUrl = `${API_BASE_URL}/job`;
   const { finalData } = useFetch(apiUrl);
   useEffect(() => {
     if (finalData) setFinalJobData(finalData);

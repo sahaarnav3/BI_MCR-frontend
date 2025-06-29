@@ -2,6 +2,8 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function PostJob() {
   const [jobTitle, setJobTitle] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -11,7 +13,7 @@ export default function PostJob() {
   const [jobDescription, setJobDescription] = useState("");
   const [jobQualifications, setJobQualifications] = useState("");
 
-  const apiUrl = "https://bi-mcr-backend.vercel.app/job";
+  const apiUrl = `${API_BASE_URL}/job`;
 
   function formSubmitHandler(e) {
     e.preventDefault();

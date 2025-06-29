@@ -3,12 +3,12 @@ import Navbar from "../components/Navbar";
 import useFetch from "../useFetch";
 import { useEffect, useState } from "react";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function JobDetails() {
   const [finalJobDetails, setFinalJobDetails] = useState({});
 
-  const apiUrl = `https://bi-mcr-backend.vercel.app/job?jobId=${
-    useParams().jobId
-  }`;
+  const apiUrl = `${API_BASE_URL}/job?jobId=${useParams().jobId}`;
   const { finalData, loading } = useFetch(apiUrl);
   useEffect(() => {
     if (finalData) setFinalJobDetails(finalData);
